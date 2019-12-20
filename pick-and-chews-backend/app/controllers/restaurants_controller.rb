@@ -8,4 +8,11 @@ class RestaurantsController < ApplicationController
         restaurant = Restaurant.find_by(params[:id])
         render json: restaurant
     end
+
+    private
+
+    def restaurant_params
+        params.require(:restaurant).permit(:name)
+    end
+
 end
