@@ -7,11 +7,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: user
+        render json: @user
     end
 
     def create
-        @user = User.create(user_params)
+        @user = User.create_or_find_by(user_params)
         render json: UserSerializer.new(@user)
     end
 
